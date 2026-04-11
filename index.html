@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#0d0f14;--bg2:#13161e;--bg3:#1a1e2a;--card:#161b26;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#edeef2;--text2:#8b92a8;--text3:#5a607a;--accent:#7c6ef5;--ar:124;--ag:110;--ab:245;--accent2:#f06292;--accent3:#4dd0e1;--font-d:'Fraunces',serif;--font-b:'Outfit',sans-serif;--font-m:'JetBrains Mono',monospace;}
-[data-theme="neon"]{--accent:#00ff88;--ar:0;--ag:255;--ab:136;--accent2:#ff00aa;--accent3:#00eeff;}
+[data-theme="rose"]{--accent:#00ff88;--ar:0;--ag:255;--ab:136;--accent2:#ff00aa;--accent3:#00eeff;}
 [data-theme="rose"]{--accent:#e05c8a;--ar:224;--ag:92;--ab:138;--accent2:#f5a623;--accent3:#5de0c8;}
 [data-theme="emerald"]{--accent:#2dd4a0;--ar:45;--ag:212;--ab:160;--accent2:#a78bfa;--accent3:#fbbf24;}
 [data-theme="solar"]{--accent:#f59e0b;--ar:245;--ag:158;--ab:11;--accent2:#e879f9;--accent3:#38bdf8;}
@@ -306,15 +306,15 @@ nav { box-shadow: 0 4px 30px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.05) ins
 
 </style>
 </head>
-<body data-theme="neon">
+<body data-theme="rose">
 <div id="cur"></div><div id="cur2"></div>
 <div id="prog"></div>
 <div class="tsw">
   <div class="tsw-label">theme</div>
   <div class="tsw-dots">
-    <div class="td td-n on"  onclick="setT('neon',this)"    title="Neon Green"></div>
+    <div class="td td-n" onclick="setT('neon',this)"    title="Neon Green"></div>
     <div class="td td-a"     onclick="setT('aurora',this)"  title="Aurora Purple"></div>
-    <div class="td td-r"     onclick="setT('rose',this)"    title="Rose Pink"></div>
+    <div class="td td-r on" onclick="setT('rose',this)"    title="Rose Pink"></div>
     <div class="td td-e"     onclick="setT('emerald',this)" title="Emerald"></div>
     <div class="td td-s"     onclick="setT('solar',this)"   title="Solar Orange"></div>
     <div class="td td-o"     onclick="setT('ocean',this)"   title="Ocean Blue"></div>
@@ -853,8 +853,7 @@ function animateCounters(){
     requestAnimationFrame(tick);
   });
 }
-const aboutEl=document.querySelector('.about-sec')||document.body;
-new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)animateCounters();}),{threshold:0.3}).observe(aboutEl);
+new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)animateCounters();}),{threshold:0.3}).observe(document.querySelector('.about-sec')||document.body);
 
 function setT(name,el){
   document.body.setAttribute('data-theme',name);
